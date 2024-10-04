@@ -42,8 +42,9 @@ print(f"Found {len(email_ids)} emails from {email_address}.")
 try:
     mail.create(f'"{folder_name}"')
     print(f"Folder '{folder_name}' created successfully.")
-except Exception as e:
-    print(f"Failed to create '{folder_name}' folder: {e}")
+except imaplib.IMAP4.error as e:
+    print(f"Folder '{folder_name}' already exists or could not be created: {e}")
+
 
 # Process the emails in batches to avoid overloading the server
 batch_size = 50  # Customize this based on performance
