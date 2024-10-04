@@ -1,10 +1,14 @@
 import imaplib
 import email
 from email.header import decode_header
+import json
 
-# Email account credentials
-username = "kerry@kankei.co.uk"
-password = "pissypaws2024"
+# Load credentials from JSON file
+with open('email_details', 'r') as file:
+    credentials = json.load(file)
+
+username = credentials['username']
+password = credentials['password']
 
 # Get user inputs for folder name and email address
 folder_name = input("Enter the folder name to move emails to: ")
