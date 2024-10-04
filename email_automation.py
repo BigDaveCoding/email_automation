@@ -4,7 +4,7 @@ from email.header import decode_header
 import json
 
 # Load credentials from JSON file
-with open('email_details', 'r') as file:
+with open('email_details.json', 'r') as file:
     credentials = json.load(file)
 
 username = credentials['username']
